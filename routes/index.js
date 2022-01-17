@@ -12,25 +12,18 @@ router.get('/query', (req, res) => {
 	const name = req.query.name;
 	const occupation = req.query.occupation;
 
-	res.json({
+	const data = {
 		name: name,
 		occupation: occupation,
-	});
+	};
+
+	res.render('profile', data);
 });
 
 router.get('/:path', (req, res) => {
 	const path = req.params.path;
 	res.json({
 		path: path,
-	});
-});
-
-router.get('/:profile/:username', (req, res, next) => {
-	const profile = req.params.profile;
-	const username = req.params.username;
-	res.json({
-		profileVariable: profile,
-		usernameVariable: username,
 	});
 });
 
