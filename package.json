@@ -1,0 +1,25 @@
+{
+  "name": "express-app-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roxanneweber/node-express-app-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roxanneweber/node-express-app-1/issues"
+  },
+  "homepage": "https://github.com/roxanneweber/node-express-app-1#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "hjs": "^0.0.6",
+    "hogan-middleware": "^0.2.2"
+  }
+}
