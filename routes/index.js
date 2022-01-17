@@ -11,4 +11,13 @@ router.get('/', (req, res) => {
 	});
 });
 
+router.get('/:profile/:username', (req, res, next) => {
+	const profile = req.params.profile;
+	const username = req.params.username;
+	res.json({
+		profileVariable: profile,
+		usernameVariable: username,
+	});
+});
+
 module.exports = router;
