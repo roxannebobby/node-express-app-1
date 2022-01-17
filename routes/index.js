@@ -25,6 +25,15 @@ profiles = {
 	},
 };
 
+router.post('/addprofile', (req, res) => {
+	const body = req.body;
+	body['languages'] = req.body.languages.split(',');
+
+	profiles[body.username] = body;
+
+	res.redirect('/profile/' + body.username);
+});
+
 router.get('/', (req, res) => {
 	res.render('index', {
 		text: 'This is the dynamic data. Open index.js from the routes directory to see.',
