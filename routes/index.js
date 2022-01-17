@@ -1,5 +1,6 @@
 // Full Documentation - https://docs.turbo360.co
 const express = require('express');
+const vertex = require('vertex360')({ site_id: process.env.TURBO_APP_ID });
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -8,14 +9,14 @@ router.get('/', (req, res) => {
 	});
 });
 
-router.post('/post', (req, res) => {
-	const body = req.body; // this normally comes from a website post form
+// router.post('/post', (req, res) => {
+// 	const body = req.body; // this normally comes from a website post form
 
-	res.json({
-		confirmation: 'success',
-		data: body,
-	});
-});
+// 	res.json({
+// 		confirmation: 'success',
+// 		data: body,
+// 	});
+// });
 
 router.get('/query', (req, res) => {
 	const name = req.query.name;

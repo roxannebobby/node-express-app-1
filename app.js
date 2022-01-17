@@ -14,8 +14,10 @@ vertex.configureApp(app, config);
 
 // import routes
 const index = require('./routes/index');
+const register = require('./routes/register');
 
 // set routes
 app.use('/', index);
+app.use('/register', register);
 
 module.exports = app;
