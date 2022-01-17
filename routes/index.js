@@ -10,9 +10,11 @@ router.get('/', (req, res) => {
 
 router.get('/query', (req, res) => {
 	const name = req.query.name;
+	const occupation = req.query.occupation;
 
 	res.json({
-		query: name,
+		name: name,
+		occupation: occupation,
 	});
 });
 
