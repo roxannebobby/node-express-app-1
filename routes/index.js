@@ -1,22 +1,35 @@
-// Full Documentation - https://docs.turbo360.co
-const express = require('express');
+// Full Documentation - https://www.turbo360.co/docs
+const turbo = require('turbo360')({ site_id: process.env.TURBO_APP_ID });
 const vertex = require('vertex360')({ site_id: process.env.TURBO_APP_ID });
-const router = express.Router();
+const router = vertex.router();
+
+// POST, GET, PUT, DELETE
+
+profiles = {
+	dkwon: {
+		name: 'dan kwon',
+		company: 'self',
+		languages: ['javascript', 'swift', 'python'],
+	},
+
+	sjobs: {
+		name: 'steve jobs',
+		company: 'apple',
+		languages: ['objective-c', 'swift', 'c++'],
+	},
+
+	bgates: {
+		name: 'bill gates',
+		company: 'microsoft',
+		languages: ['C', 'C#', 'Java'],
+	},
+};
 
 router.get('/', (req, res) => {
 	res.render('index', {
 		text: 'This is the dynamic data. Open index.js from the routes directory to see.',
 	});
 });
-
-// router.post('/post', (req, res) => {
-// 	const body = req.body; // this normally comes from a website post form
-
-// 	res.json({
-// 		confirmation: 'success',
-// 		data: body,
-// 	});
-// });
 
 router.get('/query', (req, res) => {
 	const name = req.query.name;
@@ -32,8 +45,19 @@ router.get('/query', (req, res) => {
 
 router.get('/:path', (req, res) => {
 	const path = req.params.path;
+
 	res.json({
-		path: path,
+		data: path,
+	});
+});
+
+router.get('/:profile/:username', (req, res) => {
+	const profile = req.params.profile;
+	const username = req.params.username;
+	const currentProfile = profiles[username];
+
+	res.json({
+		profile: currentProfile,
 	});
 });
 
