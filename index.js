@@ -11,21 +11,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'mustache');
 // establish hogan middleware
 app.engine('mustache', hoganMiddleware.__express);
+// set where static assest are held
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res, next) => {
-	res.send('Hello World!');
-});
+const indexRouter = require('./routes/index');
 
-app.get('/json', (req, res, next) => {
-	const data = {
-		greeting: 'Hello :)',
-	};
-	res.json(data);
-});
-
-app.get('/home', (req, res, next) => {
-	res.render('home', null);
-});
+app.use('/', indexRouter);
 
 app.listen(5000);
 console.log('listening on port: ', 5000);
