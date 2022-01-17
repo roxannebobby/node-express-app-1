@@ -56,9 +56,15 @@ router.get('/:profile/:username', (req, res) => {
 	const username = req.params.username;
 	const currentProfile = profiles[username];
 
-	res.json({
-		profile: currentProfile,
-	});
+	if (!currentProfile) {
+		res.json({
+			confirmation: 'fail',
+			message: 'Profile ' + username + ' is not found.',
+		});
+
+		return;
+	}
+	res.render('profile', currentProfile);
 });
 
 module.exports = router;
