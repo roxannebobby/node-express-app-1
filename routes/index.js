@@ -8,6 +8,15 @@ router.get('/', (req, res) => {
 	});
 });
 
+router.post('/post', (req, res) => {
+	const body = req.body; // this normally comes from a website post form
+
+	res.json({
+		confirmation: 'success',
+		data: body,
+	});
+});
+
 router.get('/query', (req, res) => {
 	const name = req.query.name;
 	const occupation = req.query.occupation;
