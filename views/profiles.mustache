@@ -5,18 +5,12 @@
 </head>
 
 <body class="container">
-<span>{{timestamp}}
-	<h1>{{name}}</h1>
-	<img class="profile-image" src="{{image}}" />
-	<h2>Company: {{company}}</h2>
-
-	<h3>Languages</h3>
+<span>{{timestamp}}</span>
+	<h1>Profiles</h1>
 	<ol>
-		{{#languages}}
-		<li>
-			{{.}}
-		</li>
-		{{/languages}}
+		{{#profiles}}
+			<li><a href='/profile/{{username}}'>{{name}}</a></li>
+		{{/profiles}}
 	</ol>
 
 	<form action="/addprofile" method="POST">
@@ -25,8 +19,12 @@
 		<input type="text" name="image" placeholder="Image (/images/example.jpg)" /><br />
 		<input type="text" name="company" placeholder="Company" /><br />
 		<input type="text" name="languages" placeholder="Languages" /><br />
-		<input type="submit" value="Add Profile" />
+		<input id="btn-add-profile" type="submit" value="Add Profile" />
 	</form>
-</body>
 
+
+
+	<script src="/js/jquery.js" type="text/javascript"></script>
+	<script src="/js/app.js" type="text/javascript"></script>
+</body>
 <html>

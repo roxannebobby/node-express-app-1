@@ -37,6 +37,7 @@ router.get('/profiles', (req, res) => {
 
 	const data = {
 		profiles: list,
+		timestamp: req.timestamp,
 	};
 
 	res.render('profiles', data);
@@ -95,7 +96,7 @@ router.get('/:profile/:username', (req, res) => {
 
 		return;
 	}
-
+	currentProfile.timestamp = req.timestamp;
 	res.render('profile', currentProfile);
 });
 

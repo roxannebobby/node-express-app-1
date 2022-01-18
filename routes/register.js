@@ -1,15 +1,18 @@
-const express = require('express');
-const vertex = require('vertex360')({ site_id: process.env.TURBO_APP_ID });
-const router = express.Router();
+// Full Documentation - https://www.turbo360.co/docs
+const turbo = require('turbo360')({site_id: process.env.TURBO_APP_ID})
+const vertex = require('vertex360')({site_id: process.env.TURBO_APP_ID})
+const router = vertex.router()
 
 router.post('/user', (req, res) => {
-	const body = req.body; // this normally comes from a website post form
+  const body = req.body // normally comes from a POST form
 
 	res.json({
 		confirmation: 'success',
-		route: 'register',
-		data: body,
-	});
-});
+    route: 'register',
+		data: body
+	})
+})
 
-module.exports = router;
+
+
+module.exports = router

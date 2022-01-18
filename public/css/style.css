@@ -1,20 +1,8 @@
 h1 {
-	color: teal;
+  color: red;
+  text-transform: capitalize;
 }
 
-body {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-img {
-	max-width: 35%;
-}
-
-@media (max-width: 650) {
-	img {
-		min-width: 550px;
-	}
+.profile-image {
+  max-width: 260px;
 }

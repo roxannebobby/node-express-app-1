@@ -1,16 +1,16 @@
-// Full Documentation - https://docs.turbo360.co
+// Full Documentation - https://www.turbo360.co/docs
 const vertex = require('vertex360')({ site_id: process.env.TURBO_APP_ID });
-const express = require('express');
 
-const app = express(); // initialize app
+const app = vertex.express(); // initialize app
 
-const config = {
-	views: 'views', // Set views directory
-	static: 'public', // Set static assets directory
-	logging: true,
-};
+// timestamp middlewear function
+app.use((req, res, next) => {
+	const timestamp = new Date();
+	req.timestamp = timestamp.toString();
+	next();
+});
 
-vertex.configureApp(app, config);
+
 
 // import routes
 const index = require('./routes/index');
