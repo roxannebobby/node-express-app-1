@@ -10,5 +10,11 @@ body {
 }
 
 img {
-	width: 50%;
+	max-width: 35%;
+}
+
+@media (max-width: 650) {
+	img {
+		min-width: 550px;
+	}
 }

@@ -1,31 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Profile Page</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="/css/style.css" type="text/css" />
 </head>
-<body>
-  <h1>Name: {{name}}</h1>
-  <h2>Company: {{company}}</h2>
 
-  <h3>Languages:</h3>
-  <ol>
-  {{#languages}}
-<li>{{.}}</li>
-   {{/languages}}
-  
-  </ol>
+<body class="container">
+	<h1>Profiles</h1>
+	<ol>
+		{{#profiles}}
+			<li>{{name}}</li>
+		{{/profiles}}
+	</ol>
+
+	<form action="/addprofile" method="POST">
+		<input type="text" name="name" placeholder="Name" /><br />
+		<input type="text" name="username" placeholder="Username" /><br />
+		<input type="text" name="image" placeholder="Image (/images/example.jpg)" /><br />
+		<input type="text" name="company" placeholder="Company" /><br />
+		<input type="text" name="languages" placeholder="Languages" /><br />
+		<input id="btn-add-profile" type="submit" value="Add Profile" />
+	</form>
 
 
-  <form action='/addprofile' method='POST'>
 
-    <input type='text' name='name' placeholder='Name' /><br />
-    <input type='text' name='username' placeholder='Username' /><br />
-    <input type='text' name='company' placeholder='Company' /><br />
-    <input type='text' name='languages' placeholder='Languages' /><br />
-    <input type='submit' value='Add Profile' />
-  </form>
+	<script src="/js/jquery.js" type="text/javascript"></script>
+	<script src="/js/app.js" type="text/javascript"></script>
 </body>
-</html>
+<html>
